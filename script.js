@@ -26,7 +26,7 @@ function getComputerChoice() {
 } 
 
 //assignment of player's choice to the variable "playerSelection" 
-const playerSelection = prompt("Rock, paper or scissors - what do you choose?");
+const playerSelection = prompt("Rock, paper or scissors - what do you choose?").toLowerCase();
 
 //assignment of computer's choice to the variable "playerSelection" 
 const computerSelection = getComputerChoice();
@@ -34,6 +34,8 @@ const computerSelection = getComputerChoice();
 //the logic for playing a single round of the game
 
 function playRound(playerSelection, computerSelection) {
+
+   
 if (playerSelection == "rock" && computerSelection == "rock") {
     console.log(`Round ${round}: Player chooses ${playerSelection}, computer chooses ${computerSelection}...no one scores! 
 
@@ -44,35 +46,35 @@ if (playerSelection == "rock" && computerSelection == "rock") {
 
     Player score: ${playerScore}
     Computer score: ${++computerScore}`)
-} else if (playerSelection == "rock" && computerSelection == "scissors") {
+} else if (playerSelection === "rock" && computerSelection === "scissors") {
     console.log(`Round ${round}: Player chooses ${playerSelection}, computer chooses ${computerSelection}...you score! 
 
     Player score: ${++playerScore}
     Computer score: ${computerScore}`)
-} else if (playerSelection == "paper" && computerSelection == "rock") {
+} else if (playerSelection === "paper" && computerSelection === "rock") {
     console.log(`Round ${round}: Player chooses ${playerSelection}, computer chooses ${computerSelection}...you score! 
 
     Player score: ${++playerScore}
     Computer score: ${computerScore}`)
-} else if (playerSelection == "paper" && computerSelection == "paper") {
+} else if (playerSelection === "paper" && computerSelection === "paper") {
     console.log(`Round ${round}: Player chooses ${playerSelection}, computer chooses ${computerSelection}...no one scores! 
 
     Player score: ${playerScore}
     Computer score: ${computerScore}`)
-} else if (playerSelection == "paper" && computerSelection == "scissors") {
+} else if (playerSelection === "paper" && computerSelection === "scissors") {
     console.log(`Round ${round}: Player chooses ${playerSelection}, computer chooses ${computerSelection}...computer scores! 
 
     Player score: ${playerScore}
-    Computer score: ${++computerScore}`) } else if (playerSelection == "scissors" && computerSelection == "rock") {
+    Computer score: ${++computerScore}`) } else if (playerSelection === "scissors" && computerSelection === "rock") {
         console.log(`Round ${round}: Player chooses ${playerSelection}, computer chooses ${computerSelection}...computer scores! 
     
         Player score: ${playerScore}
         Computer score: ${++computerScore}`)
-} else if (playerSelection == "scissors" && computerSelection == "paper") {
+} else if (playerSelection === "scissors" && computerSelection === "paper") {
     console.log(`Round ${round}: Player chooses ${playerSelection}, computer chooses ${computerSelection}...you score! 
 
     Player score: ${++playerScore}
-    Computer score: ${computerScore}`) } else if (playerSelection == "scissors" && computerSelection == "scissors") {
+    Computer score: ${computerScore}`) } else if (playerSelection === "scissors" && computerSelection === "scissors") {
         console.log(`Round ${round}: Player chooses ${playerSelection}, computer chooses ${computerSelection}...no one scores! 
 
         Player score: ${playerScore}
