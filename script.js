@@ -25,11 +25,12 @@ function getComputerChoice() {
 
 } 
 
-//assignment of player's choice to the variable "playerSelection" 
-const playerSelection = prompt("Rock, paper or scissors - what do you choose?").toLowerCase();
 
-//assignment of computer's choice to the variable "playerSelection" 
-const computerSelection = getComputerChoice();
+//declaration of player's choice" 
+let playerSelection;
+
+//declaration of player's choice" 
+let computerSelection;
 
 //the logic for playing a single round of the game
 
@@ -83,7 +84,43 @@ if (playerSelection == "rock" && computerSelection == "rock") {
         round++;
 }
 
-playRound(playerSelection, computerSelection);
+
+
+// the function that lets us play the game exactly five times
+
+function game() {
+
+ for (let i = 0; i<=4; i++) {
+    playerSelection = prompt("Rock, paper or scissors - what do you choose?").toLowerCase();
+    computerSelection = getComputerChoice();
+    playRound(playerSelection, computerSelection);
+ }
+
+    if (playerScore > computerScore) {
+        console.log(`You are the winner!
+        
+        Final score
+        
+        Player score: ${playerScore}
+        Computer score: ${computerScore}`)
+    } else if (playerScore < computerScore) {
+        console.log(`Computer is the winner!
+        
+        Final score
+        
+        Player score: ${playerScore}
+        Computer score: ${computerScore}`)
+    } else {
+        console.log(`Tie, no winner!
+        
+        Final score
+        
+        Player score: ${playerScore}
+        Computer score: ${computerScore}`)
+    }
+}
+
+game();
 
 
 
