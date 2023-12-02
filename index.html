@@ -1,15 +1,64 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Rock paper scissors</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+
 
 
 </head>
 
 <body>
+
+    <div class="left hidden">
+        <h2>Player</h2>
+        <img src="./img/image-2.JPG" height="200px">
+        <p>Player score: <span>0</span></p>
+
+
+    </div>
+
+    <div class="container">
+        
+
+        
+        <h1>Rock Paper Scissors</h1>
+        <div class="small-images">
+            <img src="./img/image-1.JPG" alt="image rock" width="80">
+            <img src="./img/image-2.JPG" alt="image paper" width="80">
+            <img src="./img/image-3.JPG" alt="image scissors" width="80"></div>
+        <p>Rock, paper or scissors - what do you choose?</p>
+        <div class="main-buttons">
+        <button class=".btnRock">Rock</button>
+        <button class=".btnPaper">Paper</button>
+        <button class=".btnScissors">Scissors</button>
+        </div>
+
+        <p class="game-message"></p>
+
+        <button class="play-again hidden">Play again</button>
+
+        
+
+
+
+
+    </div>
+
+    <div class="right" hidden>
+        <h2>Computer</h2>
+        <img src="./img/image-2.JPG" height="200px" >
+        <p>Computer score: <span>0</span></p>
+        
+
+
+    </div>
     <script src="script.js"></script>
 </body>
 
