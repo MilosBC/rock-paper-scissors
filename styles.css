@@ -91,4 +91,10 @@ p {
     height: 430px;
 }
 
+.player-image,
+.computer-image {
+    display: block;
+    margin: 0 auto;
+}
+
 
