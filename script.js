@@ -389,7 +389,26 @@ btnScissors.addEventListener('click', function() {
 });
 
 
+btnPlayAgain.addEventListener('click', function() {
+round = 1;
+roundCounter.textContent = '';
 
+playerScore = 0;
+playerScoreText.textContent = playerScore;
+
+computerScore = 0;
+computerScoreText.textContent = computerScore;
+
+gameMessage.textContent = '';
+
+leftDiv.classList.add('hidden');
+rightDiv.classList.add('hidden');
+
+btnRock.classList.remove('hidden');
+btnPaper.classList.remove('hidden');
+btnScissors.classList.remove('hidden');
+btnPlayAgain.classList.add('hidden');
+});
 
 
 
