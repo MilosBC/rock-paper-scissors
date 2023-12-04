@@ -50,6 +50,9 @@ function getComputerChoice() {
         return "scissors";
     }
 
+    
+
+    
 
 
 
@@ -59,177 +62,152 @@ function getComputerChoice() {
 
 }
 
+// Functions that deal with the logic behind the winning conditions of the game
+
+function declareTie() {
+    roundCounter.textContent = `Round ${round}`;
+    gameMessage.textContent = `No one scores!`;
+    playerScoreText.textContent = playerScore;
+    computerScoreText.textContent = computerScore;
+    }
+
+    function increaseComputerScore() {
+    roundCounter.textContent = `Round ${round}`;
+    gameMessage.textContent = `Computer scores!`;
+    playerScoreText.textContent = playerScore;
+   computerScore++;
+   computerScoreText.textContent = computerScore;
+    }
+
+    function increasePlayerScore() {
+    roundCounter.textContent = `Round ${round}`;
+    gameMessage.textContent = `Player scores!`;
+   playerScore++;
+   playerScoreText.textContent = playerScore;
+   computerScoreText.textContent = computerScore;
+
+    }
+
+    // Generate computer selection and show the divs of both player and computer
+
+    function startGame() {
+        computerSelection = getComputerChoice();
+        leftDiv.classList.remove('hidden');
+        rightDiv.classList.remove('hidden');
+    }
+
+    function announceWinner() {
+        if (playerScore === 5) {
+            playerImage.src = `trophy.png`
+            computerImage.src = 'crying.png'
+            gameMessage.textContent = `Player wins the game!`;
+            btnRock.classList.add('hidden');
+            btnPaper.classList.add('hidden');
+            btnScissors.classList.add('hidden');
+            btnPlayAgain.classList.remove('hidden');
+        } else if (computerScore === 5) {
+            playerImage.src = `crying.png`
+            computerImage.src = 'trophy.png'
+            gameMessage.textContent = `Computer wins the game!`;
+            btnRock.classList.add('hidden');
+            btnPaper.classList.add('hidden');
+            btnScissors.classList.add('hidden');
+            btnPlayAgain.classList.remove('hidden');
+    
+        }
+        
+    }
+
+
 
 
 function playRound(playerSelection, computerSelection) {
 
 
     if (playerSelection === "rock" && computerSelection === "rock") {
-        /*console.log(`Round ${round}: Player chooses ${playerSelection}, computer chooses ${computerSelection}...no one scores! 😑
+  
+  
 
-   Player score: ${playerScore}
-   Computer score: ${computerScore}`) */
-
-   roundCounter.textContent = `Round ${round}`
-
-   playerImage.src = `rock.JPG`
+   playerImage.src = `rock.JPG`;
    computerImage.src = `rock.JPG`;
 
-   gameMessage.textContent = `No one scores!`;
-
-   playerScoreText.textContent = playerScore;
-   computerScoreText.textContent = computerScore;
+   declareTie();
 
 
 
 
 
     } else if (playerSelection == "rock" && computerSelection == "paper") {
-        /*console.log(`Round ${round}: Player chooses ${playerSelection}, computer chooses ${computerSelection}...computer scores! 😱
+        
 
+  
 
-
-
-   Player score: ${playerScore}
-   Computer score: ${++computerScore}`) */
-
-   roundCounter.textContent = `Round ${round}`
-
-   playerImage.src = `rock.JPG`
+   playerImage.src = `rock.JPG`;
    computerImage.src = `paper.JPG`;
 
-   gameMessage.textContent = `Computer scores!`;
+   increaseComputerScore();
 
-   playerScoreText.textContent = playerScore;
-   ++computerScore;
-   computerScoreText.textContent = computerScore;
     } else if (playerSelection === "rock" && computerSelection === "scissors") {
-        /*console.log(`Round ${round}: Player chooses ${playerSelection}, computer chooses ${computerSelection}...you score! 😄
+       
 
+   
 
-
-
-   Player score: ${++playerScore}
-   Computer score: ${computerScore}`) */
-
-   roundCounter.textContent = `Round ${round}`
-
-   playerImage.src = `rock.JPG`
+   playerImage.src = `rock.JPG`;
    computerImage.src = `scissors.JPG`;
 
-   gameMessage.textContent = `Player scores!`;
-   ++playerScore;
-   playerScoreText.textContent = playerScore;
-   computerScoreText.textContent = computerScore;
+   increasePlayerScore();
     } else if (playerSelection === "paper" && computerSelection === "rock") {
-         /*console.log(`Round ${round}: Player chooses ${playerSelection}, computer chooses ${computerSelection}...you score! 😄
+   
 
+   
 
-
-
-   Player score: ${++playerScore}
-   Computer score: ${computerScore}`) */
-
-   roundCounter.textContent = `Round ${round}`
-
-   playerImage.src = `paper.JPG`
+   playerImage.src = `paper.JPG`;
    computerImage.src = `rock.JPG`;
 
-   gameMessage.textContent = `Player scores!`;
-   ++playerScore;
-   playerScoreText.textContent = playerScore;
-   computerScoreText.textContent = computerScore;
+   increasePlayerScore();
     } else if (playerSelection === "paper" && computerSelection === "paper") {
-       /* console.log(`Round ${round}: Player chooses ${playerSelection}, computer chooses ${computerSelection}...no one scores! 😑
+       
 
+  
 
-
-
-   Player score: ${playerScore}
-   Computer score: ${computerScore}`) */
-
-   roundCounter.textContent = `Round ${round}`
-
-   playerImage.src = `paper.JPG`
+   playerImage.src = `paper.JPG`;
    computerImage.src = `paper.JPG`;
 
-   gameMessage.textContent = `No one scores!`;
-
-   playerScoreText.textContent = playerScore;
-   computerScoreText.textContent = computerScore;
+   declareTie();
 
 
     } else if (playerSelection === "paper" && computerSelection === "scissors") {
-       /* console.log(`Round ${round}: Player chooses ${playerSelection}, computer chooses ${computerSelection}...computer scores! 😱
+ 
 
+   
 
-
-
-   Player score: ${playerScore}
-   Computer score: ${++computerScore}`) */
-
-   roundCounter.textContent = `Round ${round}`
-
-   playerImage.src = `paper.JPG`
+   playerImage.src = `paper.JPG`;
    computerImage.src = `scissors.JPG`;
 
-   gameMessage.textContent = `Computer scores!`;
-
-   playerScoreText.textContent = playerScore;
-   ++computerScore;
-   computerScoreText.textContent = computerScore;
+   increaseComputerScore();
     } else if (playerSelection === "scissors" && computerSelection === "rock") {
-        /*console.log(`Round ${round}: Player chooses ${playerSelection}, computer chooses ${computerSelection}...computer scores! 😱
- 
-       Player score: ${playerScore}
-       Computer score: ${++computerScore}`) */
+     
 
-       roundCounter.textContent = `Round ${round}`
+       
 
-       playerImage.src = `scissors.JPG`
+       playerImage.src = `scissors.JPG`;
        computerImage.src = `rock.JPG`;
     
-       gameMessage.textContent = `Computer scores!`;
-    
-       playerScoreText.textContent = playerScore;
-       ++computerScore;
-       computerScoreText.textContent = computerScore;
+      increaseComputerScore();
     } else if (playerSelection === "scissors" && computerSelection === "paper") {
-        /*console.log(`Round ${round}: Player chooses ${playerSelection}, computer chooses ${computerSelection}...you score! 😄
+        
 
-
-
-
-   Player score: ${++playerScore}
-   Computer score: ${computerScore}`) */
-
-   roundCounter.textContent = `Round ${round}`
-
-   playerImage.src = `scissors.JPG`
+   playerImage.src = `scissors.JPG`;
    computerImage.src = `paper.JPG`;
 
-   gameMessage.textContent = `Player scores!`;
-   ++playerScore;
-   playerScoreText.textContent = playerScore;
-   computerScoreText.textContent = computerScore;
+   increasePlayerScore();
     } else if (playerSelection === "scissors" && computerSelection === "scissors") {
-       /* console.log(`Round ${round}: Player chooses ${playerSelection}, computer chooses ${computerSelection}...no one scores! 😑
+      
 
-
-
-
-       Player score: ${playerScore}
-       Computer score: ${computerScore}`) */
-
-       roundCounter.textContent = `Round ${round}`
-
-       playerImage.src = `scissors.JPG`
+       playerImage.src = `scissors.JPG`;
        computerImage.src = `scissors.JPG`;
     
-       gameMessage.textContent = `No one scores!`;
-    
-       playerScoreText.textContent = playerScore;
-       computerScoreText.textContent = computerScore;
+       declareTie();
     }
 
 
@@ -240,149 +218,37 @@ function playRound(playerSelection, computerSelection) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*function game() {
-
-
-
-
-   
-       
-       
-
-        playRound(playerSelection, computerSelection);
-
-    
-
-
-    }
-
-
-
-
-
-    if (playerScore > computerScore) {
-        roundCounter.textContent = `Round ${round}`
-        playerImage.src = `trophy.png`
-        computerImage.src = 'crying.png'
-        gameMessage.textContent = `Player wins the game!`;
-    
-        playerScoreText.textContent = playerScore;
-        computerScoreText.textContent = computerScore;
-    } else if (playerScore < computerScore) {
-        roundCounter.textContent = `Round ${round}`
-        playerImage.src = `crying.png`
-        computerImage.src = 'trophy.png'
-        gameMessage.textContent = `Computer wins the game!`;
-    
-        playerScoreText.textContent = playerScore;
-        computerScoreText.textContent = computerScore;
-    }
-    
-    btnPlayAgain.classList.remove('hidden'); */
-
-
 // Event handlers for the game
 
 btnRock.addEventListener('click', function() {
     playerSelection = `rock`;
-    computerSelection = getComputerChoice();
-    leftDiv.classList.remove('hidden');
-    rightDiv.classList.remove('hidden');
+    startGame();
 
     playRound(playerSelection, computerSelection);
 
-    if (playerScore === 5) {
-        playerImage.src = `trophy.png`
-        computerImage.src = 'crying.png'
-        gameMessage.textContent = `Player wins the game!`;
-        btnRock.classList.add('hidden');
-        btnPaper.classList.add('hidden');
-        btnScissors.classList.add('hidden');
-        btnPlayAgain.classList.remove('hidden');
-    } else if (computerScore === 5) {
-        playerImage.src = `crying.png`
-        computerImage.src = 'trophy.png'
-        gameMessage.textContent = `Computer wins the game!`;
-        btnRock.classList.add('hidden');
-        btnPaper.classList.add('hidden');
-        btnScissors.classList.add('hidden');
-        btnPlayAgain.classList.remove('hidden');
-
-    }
+    announceWinner();
     
     
 });
 
 btnPaper.addEventListener('click', function() {
     playerSelection = `paper`;
-    computerSelection = getComputerChoice();
-    leftDiv.classList.remove('hidden');
-    rightDiv.classList.remove('hidden');
+    startGame();
 
     playRound(playerSelection, computerSelection);
 
-    if (playerScore === 5) {
-        playerImage.src = `trophy.png`
-        computerImage.src = 'crying.png'
-        gameMessage.textContent = `Player wins the game!`;
-        btnRock.classList.add('hidden');
-        btnPaper.classList.add('hidden');
-        btnScissors.classList.add('hidden');
-        btnPlayAgain.classList.remove('hidden');
-    } else if (computerScore === 5) {
-        playerImage.src = `crying.png`
-        computerImage.src = 'trophy.png'
-        gameMessage.textContent = `Computer wins the game!`;
-        btnRock.classList.add('hidden');
-        btnPaper.classList.add('hidden');
-        btnScissors.classList.add('hidden');
-        btnPlayAgain.classList.remove('hidden');
-
-    }
+    announceWinner();
    
     
 });
 
 btnScissors.addEventListener('click', function() {
     playerSelection = `scissors`;
-    computerSelection = getComputerChoice();
-    leftDiv.classList.remove('hidden');
-    rightDiv.classList.remove('hidden');
+    startGame();
 
     playRound(playerSelection, computerSelection);
 
-    if (playerScore === 5) {
-        playerImage.src = `trophy.png`
-        computerImage.src = 'crying.png'
-        gameMessage.textContent = `Player wins the game!`;
-        btnRock.classList.add('hidden');
-        btnPaper.classList.add('hidden');
-        btnScissors.classList.add('hidden');
-        btnPlayAgain.classList.remove('hidden');
-    } else if (computerScore === 5) {
-        playerImage.src = `crying.png`
-        computerImage.src = 'trophy.png'
-        gameMessage.textContent = `Computer wins the game!`;
-        btnRock.classList.add('hidden');
-        btnPaper.classList.add('hidden');
-        btnScissors.classList.add('hidden');
-        btnPlayAgain.classList.remove('hidden');
-
-    }
+    announceWinner();
 
     
    
