@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+   
 }
 
 
@@ -95,6 +96,22 @@ p {
 .computer-image {
     display: block;
     margin: 0 auto;
+}
+
+.left,
+.right {
+    position: absolute;
+}
+
+.left {
+    left: 420px;
+    bottom: 193px;
+    
+}
+
+.right {
+    right: 420px;
+    bottom: 193px;
 }
 
 

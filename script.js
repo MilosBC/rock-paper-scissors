@@ -50,16 +50,6 @@ function getComputerChoice() {
         return "scissors";
     }
 
-    
-
-    
-
-
-
-
-
-
-
 }
 
 // Functions that deal with the logic behind the winning conditions of the game
@@ -216,39 +206,35 @@ function playRound(playerSelection, computerSelection) {
     round++;
 }
 
+function playGame() {
+    startGame();
+
+    playRound(playerSelection, computerSelection);
+
+    announceWinner();
+}
+
 
 
 // Event handlers for the game
 
 btnRock.addEventListener('click', function() {
     playerSelection = `rock`;
-    startGame();
-
-    playRound(playerSelection, computerSelection);
-
-    announceWinner();
+    playGame();
     
     
 });
 
 btnPaper.addEventListener('click', function() {
     playerSelection = `paper`;
-    startGame();
-
-    playRound(playerSelection, computerSelection);
-
-    announceWinner();
+    playGame();
    
     
 });
 
 btnScissors.addEventListener('click', function() {
     playerSelection = `scissors`;
-    startGame();
-
-    playRound(playerSelection, computerSelection);
-
-    announceWinner();
+    playGame();
 
     
    
